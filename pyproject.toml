@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "album_collector_bot"
+version = "0.1.0"
+dependencies = [
+    "python-telegram-bot~=22.2", 
+    "python-dotenv==1.1.0",
+]
+authors = [
+    {name = "Cyril Margorin", email = "comargo@gmail.com"},
+]
+description = "Telegram bot for creating media albums"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+
+[project.scripts]
+album_collector_bot = "album_collector_bot.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["album_collector_bot"]
