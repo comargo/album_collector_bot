@@ -24,5 +24,8 @@ license = "MIT"
 [project.scripts]
 album_collector_bot = "album_collector_bot.__main__:main"
 
+[project.optional-dependencies]
+webhook = ["python-telegram-bot[webhook]~=22.2"]
+
 [tool.setuptools.packages.find]
 include = ["album_collector_bot"]
