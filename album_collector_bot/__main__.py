@@ -2,8 +2,10 @@
 Bot application entry point
 """
 
-import string
+import sys
 import secrets
+
+from collections.abc import (Sequence)
 
 from telegram.constants import UpdateType
 
@@ -38,12 +40,11 @@ def generate_token_secure(length=None):
     return secrets.token_urlsafe(length)[:length]
 
 
-def main():
+def main(args: Sequence[str] | None = None):
     """
     Main function
     """
-    settings = Settings()
-    settings.parse_args()
+    settings = Settings(args=args)
     app = create_app(settings=settings)
     allowed_updates = [
         UpdateType.MESSAGE,
@@ -68,4 +69,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
